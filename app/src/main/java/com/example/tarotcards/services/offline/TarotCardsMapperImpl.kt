@@ -6,7 +6,7 @@ import com.example.tarotcards.network.dto.TarotApiResponse
 object TarotCardsMapperImpl : TarotCardsMapper {
     override fun toJuanitoModel(tarotApiResponse: TarotApiResponse): List<TarotCards>? = tarotApiResponse.cards?.map {tarotCardResponse ->
             TarotCards(
-               tarotCardResponse?.valueInt ?: 0,
+                tarotCardResponse?.valueInt ?: 0,
                 tarotCardResponse?.meaningUp ?: "",
                 tarotCardResponse?.meaningRev ?: "",
                 tarotCardResponse?.name ?: "",
