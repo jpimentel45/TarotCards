@@ -2,25 +2,25 @@ package com.example.tarotcards.tarotroom
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.tarotcards.model.TarotCards
+import com.example.tarotcards.model.TarotCardModel
 
 @Dao
 interface TarotCardsDao {
     @Insert
-    fun insertAll(tarotCards: List<TarotCards>)
+    fun insertAll(tarotCards: List<TarotCardModel>)
 
     @Insert
-    fun insert(tarot: TarotCards)
+    fun insert(tarot: TarotCardModel)
 
     @Update
-    fun update(tarot: TarotCards)
+    fun update(tarot: TarotCardModel)
 
     @Delete
-    fun delete(tarot: TarotCards)
+    fun delete(tarot: TarotCardModel)
 
     @Query("delete from tarot_cards_table")
     fun deleteAllTarotCards()
 
     @Query("select * from tarot_cards_table order by id desc")
-    fun getAllTarotCards(): LiveData<List<TarotCards>>
+    fun getAllTarotCards(): LiveData<List<TarotCardModel>>
 }

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tarotcards.model.TarotCards
+import com.example.tarotcards.model.TarotCardModel
 import com.example.tarotcards.network.ApiResponse
 import com.example.tarotcards.network.TarotApi
 import com.example.tarotcards.repositories.MainRepository
@@ -13,8 +13,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class TarotViewModel : ViewModel(){
-    private val _list = MutableLiveData<List<TarotCards>?>(emptyList())
-    val list: LiveData<List<TarotCards>?> = _list
+    private val _list = MutableLiveData<List<TarotCardModel>?>(emptyList())
+    val list: LiveData<List<TarotCardModel>?> = _list
  fun getTarotCards(){
     viewModelScope.launch(Dispatchers.IO){
         val listResult = TarotApi.tarotRetrofitService().getCards()

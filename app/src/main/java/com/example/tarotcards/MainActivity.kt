@@ -1,31 +1,58 @@
 package com.example.tarotcards
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import com.example.tarotcards.repositories.TarotCardsRepository
+import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import com.example.tarotcards.databinding.ActivityMainBinding
+import com.example.tarotcards.tarot.TarotCardAdapter
 import com.example.tarotcards.tarot.TarotViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.example.tarotcards.ui.TarotCardFragment
+import com.example.tarotcards.util.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : BaseActivity() {
     private lateinit var viewModel: TarotViewModel
-    private lateinit var repo: TarotCardsRepository
+    private lateinit var binding: ActivityMainBinding
+    private var adapter: TarotCardAdapter = TarotCardAdapter{
+        Toast.makeText(this, it.meaningUp, Toast.LENGTH_SHORT).show()
+    }
+    private lateinit var toolbar: Toolbar
+
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        repo = TarotCardsRepository(application)
-        viewModel = ViewModelProvider(this)[TarotViewModel::class.java]
-        viewModel.getTarotCards()
-        val view = findViewById<TextView>(R.id.tv_hello)
-        viewModel.list.observe(this){
-            view.text = it.toString()
-            lifecycleScope.launch(Dispatchers.Unconfined) {
-                repo.insertAll(it ?: emptyList())
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        toolbar = binding.toolBar.myToolbar
+        setSupportActionBar(toolbar)
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                add<TarotCardFragment>(R.id.fragment_container_view)
+                disallowAddToBackStack()
 
             }
         }
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            android.R.id.home -> {
+                supportFragmentManager.popBackStack()
+                return true
+            }
+            else ->{
+                super.onOptionsItemSelected(item)
+            }
+        }
+    }
+
+//    override fun onBackPressed() {
+//        if (supportFragmentManager.backStackEntryCount > 0) supportFragmentManager.popBackStack()
+//        else super.onBackPressed()
+//    }
 }

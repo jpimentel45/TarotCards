@@ -1,0 +1,25 @@
+package com.example.tarotcards.util
+
+enum class MajorEnum(val nameShort : String, val imgURL : String ) {
+    TheWorld("ar21", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/21-world.jpg?w=873"),
+    Judgement("ar20", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/20-Judgement.jpg?w=873"),
+    TheSun("ar19", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/19-sun.jpg?w=873"),
+    TheMoon("ar18", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/18-moon.jpg?w=873"),
+    TheStar("ar17", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/17-star.jpg?w=873"),
+    TheTower("ar16", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/09/TJ-Tower.jpg?w=682"),
+    TheDevil("ar15", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    Temperance("ar14", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    Death("ar13", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    TheHangedMan("ar12", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    Justice("ar11", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    WheelOfFortune("ar10", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    TheHermit("ar09", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    Fortitude("ar08", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    TheChariot("ar07", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    TheLovers("ar06", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    TheHierophant("ar05", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    TheEmperor("ar04", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    TheEmpress("ar03", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    TheHighPriestess("ar02", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+    TheMagician("ar01", "https://i0.wp.com/www.quickcardreading.com/wp-content/uploads/2013/03/15-devil.jpg?w=873"),
+}

@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.tarotcards.model.TarotCards
+import com.example.tarotcards.model.TarotCardModel
 
-@Database(entities = [TarotCards::class], version = 1)
+@Database(entities = [TarotCardModel::class], version = 1)
 abstract class TarotCardsDatabase : RoomDatabase() {
     abstract fun tarotCardsDao(): TarotCardsDao
 
